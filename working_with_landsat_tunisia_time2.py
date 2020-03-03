@@ -35,7 +35,7 @@ import earthpy.plot    as ep
 #et.data.get_data('cold-springs-fire')
 #Make your base directory
 os.chdir(os.path.join(et.io.HOME, 'Documents/Landsat_data/')) 
-#/Users/scotthillard/Documents/Landsat_data/LandsatData2018
+#/Documents/Landsat_data/LandsatData2018
 #set parameters  for display#############
 mpl.rcParams['figure.figsize'] = (10, 10)
 mpl.rcParams['axes.titlesize'] = 20
@@ -60,7 +60,7 @@ ep.plot_bands(landsat_band4[0],
 #-Create a stack object in python---------------------------------#
 #landsat band stack-----------------------------------------------#
 
-landsat_Time2_path = "/Users/scotthillard/Documents/Landsat_data/outputs/landsat_time2_2019.tif"
+landsat_Time2_path = "/Documents/Landsat_data/outputs/landsat_time2_2019.tif"
 es.stack(all_landsat_post_bands,landsat_Time2_path, nodata=None)
 
 #open the new raster stack
@@ -130,13 +130,13 @@ ax.set_axis_off()
 plt.show()
 
 #export as a .tif-------------------------------------------------------------------------#
-landsat_nbr_path = "/Users/scotthillard/Documents/Landsat_data/outputs/LS_2019/nbr_time2.tif"
-landsat_ndvi_path = "/Users/scotthillard/Documents/Landsat_data/outputs/LS_2019/ndvi_time2.tif"
+landsat_nbr_path = "/Documents/Landsat_data/outputs/LS_2019/nbr_time2.tif"
+landsat_ndvi_path = "/Documents/Landsat_data/outputs/LS_2019/ndvi_time2.tif"
 type(naip_nbr), naip_nbr.dtype
 
 #in order to view it, you need to be able to export it as a .tif, get the meta data of another source
 
-with rio.open("/Users/scotthillard/Documents/Landsat_data/outputs/landsat_time2_2019.tif") as src:
+with rio.open("/Documents/Landsat_data/outputs/landsat_time2_2019.tif") as src:
     naip_data_ras = src.read()
     naip_meta = src.profile
        
@@ -161,7 +161,7 @@ from sklearn import cluster
 import gdal
 #you already have the other packages loaded
 
-dataset = gdal.Open("/Users/scotthillard/Desktop/earth_analytics/coldspringsfire/outputs/nbr.tif")
+dataset = gdal.Open("/Desktop/earth_analytics/coldspringsfire/outputs/nbr.tif")
 band = dataset.GetRasterBand(1)
 img = dataset.ReadAsArray()
 X = img.reshape((-1, 1))
